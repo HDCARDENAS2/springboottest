@@ -39,7 +39,7 @@ public class Usuario implements java.io.Serializable {
      private String ciudadResidencia;
     @Column(name="usuario", nullable=false, length=100)
      private String usuario;
-	@Column(name = "clave", nullable = false, length = 65535)
+	@Column(name = "clave", nullable = false, length = 72)
      private String clave;
     @Temporal(TemporalType.DATE)
     @Column(name="fecha_nacimiento", nullable=false, length=10)
@@ -48,7 +48,7 @@ public class Usuario implements java.io.Serializable {
     @Column(name="date_create", nullable=false, length=19)
      private Date dateCreate;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="date_update", nullable=false, length=19)
+    @Column(name="date_update", length=19)
      private Date dateUpdate;
      
     public Usuario() {

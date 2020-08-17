@@ -10,6 +10,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
+import com.prueba.controller.constants.ApiContants;
 import com.prueba.model.dto.UsuarioDTO;
 import com.prueba.model.entity.Usuario;
 
@@ -42,12 +43,12 @@ public interface UsuarioMapper  {
     
     @Named("StringToDate")
     default Date stringToDate(String in) throws ParseException {
-    	return new SimpleDateFormat("yyyy-MM-dd").parse(in);  
+    	return new SimpleDateFormat(ApiContants.DEFAULT_FORMAT_DATE).parse(in);  
     }
     
     @Named("DateToString")
     default String dateToString(Date in) {
-    	 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
+    	 DateFormat dateFormat = new SimpleDateFormat(ApiContants.DEFAULT_FORMAT_DATE);  
     	 return dateFormat.format(in);  
     }
 

@@ -1,5 +1,7 @@
 package com.prueba.service.impl;
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,8 +48,11 @@ public class UsuarioService implements IUsuarioService {
 	
 			if( findUsuario != null) {
 				usuario.setId(findUsuario.getId());
+				usuario.setDateCreate(findUsuario.getDateCreate());
+				usuario.setDateUpdate(new Date());
 			}else {
 				usuario.setId(null);
+				usuario.setDateCreate(new Date());
 			}
 			
 			usuario.setClave(passwordEncoder.encode(usuario.getClave()));

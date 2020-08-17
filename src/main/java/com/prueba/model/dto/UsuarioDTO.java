@@ -2,9 +2,6 @@ package com.prueba.model.dto;
 
 import java.util.Date;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NegativeOrZero;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -42,6 +39,8 @@ public class UsuarioDTO {
 	private String clave;
 	@NotNull(message = MsgUsuarioDTOConstants.MSG_NULL_FECHANACIMIENTO)
 	private String fechaNacimiento;
+	private Date dateCreate;
+	private Date dateUpdate;
 
 	public UsuarioDTO() {
 
@@ -127,4 +126,21 @@ public class UsuarioDTO {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+	public Date getDateCreate() {
+		return dateCreate;
+	}
+
+	public void setDateCreate(Date dateCreate) {
+		this.dateCreate = dateCreate;
+	}
+
+	public Date getDateUpdate() {
+		return dateUpdate;
+	}
+
+	public void setDateUpdate(Date dateUpdate) {
+		this.dateUpdate = dateUpdate;
+	}
+	
+	
 }

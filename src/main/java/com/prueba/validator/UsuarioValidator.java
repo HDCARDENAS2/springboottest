@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.prueba.controller.constants.ApiContants;
 import com.prueba.controller.constants.MsgUsuarioValidatorConstants;
 import com.prueba.exception.CustomException;
 import com.prueba.model.dto.UsuarioDTO;
@@ -41,7 +42,7 @@ public class UsuarioValidator {
 				throw new CustomException(MsgUsuarioValidatorConstants.MSG_V_2);
 			}
 
-			Date fechaNacimiento = new SimpleDateFormat("yyyy-MM-dd").parse(usuario.getFechaNacimiento());
+			Date fechaNacimiento = new SimpleDateFormat(ApiContants.DEFAULT_FORMAT_DATE).parse(usuario.getFechaNacimiento());
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(fechaNacimiento);
 
@@ -55,12 +56,12 @@ public class UsuarioValidator {
 				throw new CustomException(MsgUsuarioValidatorConstants.MSG_V_3);
 			}
 
-			String usuarioData = usuario.getUsuario();
+			String usuarioData = usuario.getUsuario().toLowerCase();
 
 			List<String> dataValidateUserio = new ArrayList<>();
 
-			dataValidateUserio.addAll(Arrays.asList(usuario.getNombres().split(" ")));
-			dataValidateUserio.addAll(Arrays.asList(usuario.getApellidos().split(" ")));
+			dataValidateUserio.addAll(Arrays.asList(usuario.getNombres().toLowerCase().split(" ")));
+			dataValidateUserio.addAll(Arrays.asList(usuario.getApellidos().toLowerCase().split(" ")));
 
 			for (String valueData : dataValidateUserio) {
 				if (usuarioData.contains(valueData)) {

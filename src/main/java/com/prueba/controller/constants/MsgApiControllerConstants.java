@@ -10,7 +10,7 @@ public class MsgApiControllerConstants {
 
 	}
 	
-	public static final String MSG_SAVE_USUARIO = "El usuario fue guardado con éxito.";
+	public static final String MSG_SAVE_USUARIO = "El usuario %s fue guardado con éxito.";
 	public static final String MSG_FAIL = "Se presento un error en el servidor.";
 	
 

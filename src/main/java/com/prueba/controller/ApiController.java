@@ -61,8 +61,7 @@ public class ApiController {
 				
 			}else {
 				UsuarioDTO usuarioSave = usuarioService.saveUsuario(usuario);
-				response.put("message", MsgApiControllerConstants.MSG_SAVE_USUARIO);
-				response.put("id", usuarioSave.getId());
+				response.put("message",String.format(MsgApiControllerConstants.MSG_SAVE_USUARIO, usuarioSave.getId()));
 				codeReponse = HttpStatus.OK;	
 			}
 	
